@@ -77,8 +77,10 @@ function getFullVideoUrl(videoId, autoplay, enhancedPrivacy, suggestions, contro
   if (!showInfo)
     params.push("&showinfo=0");
 
-  if (time)
+  if (time) {
+    console.log("YT PACKAGE: ", time)
     params.push(`&t=${time}`)
+  }
 
   return params.join("");
 }
