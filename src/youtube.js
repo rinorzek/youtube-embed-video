@@ -37,10 +37,11 @@ function YoutubeEmbedVideo(props) {
     width,
     height,
     size,
+    time,
     ...rest
   } = props;
 
-  let url = getFullVideoUrl(videoId, autoplay, enhancedPrivacy, suggestions, controls, showInfo);
+  let url = getFullVideoUrl(videoId, autoplay, enhancedPrivacy, suggestions, controls, showInfo, time);
   let calculatedSize = getVideoSize(width, height, size);
 
   return (
@@ -56,7 +57,7 @@ function YoutubeEmbedVideo(props) {
   );
 }
 
-function getFullVideoUrl(videoId, autoplay, enhancedPrivacy, suggestions, controls, showInfo) {
+function getFullVideoUrl(videoId, autoplay, enhancedPrivacy, suggestions, controls, showInfo, time) {
   let params = [];
 
   if (enhancedPrivacy)
@@ -75,6 +76,9 @@ function getFullVideoUrl(videoId, autoplay, enhancedPrivacy, suggestions, contro
 
   if (!showInfo)
     params.push("&showinfo=0");
+
+  if (time)
+    params.push(`&t=${time}`)
 
   return params.join("");
 }
