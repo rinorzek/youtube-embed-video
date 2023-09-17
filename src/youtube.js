@@ -44,6 +44,8 @@ function YoutubeEmbedVideo(props) {
   let url = getFullVideoUrl(videoId, autoplay, enhancedPrivacy, suggestions, controls, showInfo, time);
   let calculatedSize = getVideoSize(width, height, size);
 
+  console.log("YT PACKAGE");
+
   return (
     <iframe
       width={calculatedSize.width}
